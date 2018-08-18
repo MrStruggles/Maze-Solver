@@ -27,6 +27,8 @@ namespace MazeSolver
                 img = new Bitmap(openFileDialog.FileName);
                 lblDirectory.Text = openFileDialog.FileName;
             }
+
+            
         }
 
         private void btnSolve_Click(object sender, EventArgs e)
@@ -55,6 +57,8 @@ namespace MazeSolver
                     }
                     rtbOutput.AppendText(Environment.NewLine);
                 }
+
+                MazeHandler.FloodFillSolve(maze);
             }
             
         }

@@ -79,7 +79,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 503);
+            this.ClientSize = new System.Drawing.Size(605, 503);
             this.Controls.Add(this.lblDirectory);
             this.Controls.Add(this.rtbOutput);
             this.Controls.Add(this.btnSolve);
