@@ -12,7 +12,7 @@ namespace MazeSolver
 {
     public partial class frmSolver : Form
     {
-        Bitmap img;
+        Maze maze;
         public frmSolver()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace MazeSolver
             openFileDialog.Filter = "Text|*.png|All|*.*";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                img = new Bitmap(openFileDialog.FileName);
+                maze = new Maze(new Bitmap(openFileDialog.FileName));
                 lblDirectory.Text = openFileDialog.FileName;
             }
 
@@ -33,32 +33,13 @@ namespace MazeSolver
 
         private void btnSolve_Click(object sender, EventArgs e)
         {
-            if (img == null)
+            if (maze == null)
             {
                 MessageBox.Show("Please select a .png image","No File Selected",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else
             {
-                rtbOutput.Clear();
-                bool[,] maze = MazeHandler.ConvertToArray(img);
-
-                for (int i = 0; i < maze.GetLength(1); i++)
-                {
-                    for (int j = 0; j < maze.GetLength(0); j++)
-                    {
-                        if (maze[j, i])
-                        {
-                            rtbOutput.AppendText(" 1 ");
-                        }
-                        else
-                        {
-                            rtbOutput.AppendText(" 0 ");
-                        }
-                    }
-                    rtbOutput.AppendText(Environment.NewLine);
-                }
-
-                MazeHandler.FloodFillSolve(maze);
+                // solve maxe and display process visually
             }
             
         }
